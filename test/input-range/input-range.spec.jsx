@@ -222,7 +222,7 @@ describe('InputRange', () => {
     beforeEach(() => {
       spyOn(inputRange, 'updatePosition');
 
-      slider = inputRange.refs.sliderMax;
+      slider = inputRange.sliderMaxNode;
       event = {
         clientX: 100,
         clientY: 200,
@@ -252,7 +252,7 @@ describe('InputRange', () => {
       beforeEach(() => {
         spyOn(inputRange, 'decrementValue');
 
-        slider = inputRange.refs.sliderMax;
+        slider = inputRange.sliderMaxNode;
         event = {
           keyCode: 37,
           preventDefault: jasmine.createSpy('preventDefault'),
@@ -284,7 +284,7 @@ describe('InputRange', () => {
       beforeEach(() => {
         spyOn(inputRange, 'decrementValue');
 
-        slider = inputRange.refs.sliderMax;
+        slider = inputRange.sliderMaxNode;
         event = {
           keyCode: 40,
           preventDefault: jasmine.createSpy('preventDefault'),
@@ -316,7 +316,7 @@ describe('InputRange', () => {
       beforeEach(() => {
         spyOn(inputRange, 'incrementValue');
 
-        slider = inputRange.refs.sliderMax;
+        slider = inputRange.sliderMaxNode;
         event = {
           keyCode: 39,
           preventDefault: jasmine.createSpy('preventDefault'),
@@ -348,7 +348,7 @@ describe('InputRange', () => {
       beforeEach(() => {
         spyOn(inputRange, 'incrementValue');
 
-        slider = inputRange.refs.sliderMax;
+        slider = inputRange.sliderMaxNode;
         event = {
           keyCode: 38,
           preventDefault: jasmine.createSpy('preventDefault'),
@@ -472,7 +472,7 @@ describe('InputRange', () => {
       inputRange = renderComponent(
         <InputRange maxValue={20} minValue={0} value={value} onChange={onChange} onChangeComplete={onChangeComplete}/>
       );
-      slider = ReactDOM.findDOMNode(inputRange.refs.sliderMax);
+      slider = ReactDOM.findDOMNode(inputRange.sliderMaxNode);
     });
 
     it('should call onChangeComplete if value has changed since the start of interaction', () => {
@@ -491,7 +491,7 @@ describe('InputRange', () => {
       inputRange = renderComponent(
         <InputRange maxValue={20} minValue={0} defaultValue={defaultValue} onChange={onChange} onChangeComplete={onChangeComplete}/>
       );
-      slider = ReactDOM.findDOMNode(inputRange.refs.sliderMax);
+      slider = ReactDOM.findDOMNode(inputRange.sliderMaxNode);
 
       slider.dispatchEvent(mouseDownEvent);
       value += 2;
@@ -520,7 +520,7 @@ describe('InputRange', () => {
         <InputRange ariaLabelledby="foobar" maxValue={20} minValue={0} value={values} onChange={onChange} />
       );
 
-      const slider = ReactDOM.findDOMNode(inputRange.refs.sliderMax);
+      const slider = ReactDOM.findDOMNode(inputRange.sliderMaxNode);
       const handle = slider.querySelector('[role=slider]');
       const ariaLabelledby = handle.getAttribute('aria-labelledby');
 
@@ -534,7 +534,7 @@ describe('InputRange', () => {
         <InputRange ariaControls="foobar" maxValue={20} minValue={0} value={values} onChange={onChange} />
       );
 
-      const slider = ReactDOM.findDOMNode(inputRange.refs.sliderMax);
+      const slider = ReactDOM.findDOMNode(inputRange.sliderMaxNode);
       const handle = slider.querySelector('[role=slider]');
       const ariaControls = handle.getAttribute('aria-controls');
 
