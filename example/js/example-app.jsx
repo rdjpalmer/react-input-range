@@ -1,7 +1,9 @@
+/* eslint-disable class-methods-use-this, no-console */
+
 import React from 'react';
 import InputRange from '../../src/js';
 
-class App extends React.Component {
+export default class ExampleApp extends React.Component {
   constructor(props) {
     super(props);
 
@@ -118,5 +120,3 @@ class App extends React.Component {
     );
   }
 }
-
-export default App;
